@@ -1,6 +1,6 @@
-# gmpl
+# pomelo
 
-> A gmpl web app
+> A pomelo web app
 
 ## Build Setup
 
