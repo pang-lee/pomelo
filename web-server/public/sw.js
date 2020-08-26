@@ -7,7 +7,10 @@ const assets = [
     '/js/app.js',
     '/js/lib/pomeloclient.js',
     '/js/lib/socket.io.js',
-    '/js/vue/component/component.js',
+    '/js/vue/component/game.vue',
+    '/js/vue/component/live.vue',
+    '/js/vue/component/login.vue',
+    '/js/vue/component/navbar.vue',
     '/js/vue/vuex.js',
     '/js/vue/router.js',
     '/js/vue/vue.js',
@@ -18,7 +21,8 @@ const assets = [
     'https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js',
     'https://unpkg.com/vue-router/dist/vue-router.js',
     'https://unpkg.com/vuex',
-    'https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js'
+    'https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js',
+    'https://unpkg.com/http-vue-loader'
 ]
 
 const limitCacheSize = (name, size) => {
