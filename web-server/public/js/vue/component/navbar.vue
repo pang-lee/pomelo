@@ -39,12 +39,12 @@
 
 <script>
 module.exports = {
-    data(){
-      return{
-        auth:false,
-        test:store.state.count
-      }
+  data(){
+    return{
+      auth:false,
+      test:store.state.count
     }
+  }
 }
 </script>
 

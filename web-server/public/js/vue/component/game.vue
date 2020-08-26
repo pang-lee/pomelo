@@ -51,9 +51,9 @@
 
 <script>
 module.exports = {
-    data(){
-      return{}
-    }
+  data(){
+    return{}
+  }
 }
 </script>
 

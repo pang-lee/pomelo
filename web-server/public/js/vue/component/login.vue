@@ -97,62 +97,62 @@
 
 <script>
 module.exports = {
-    data() {
-        return {
-            emailRule:/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/,
-            passwordRule:/.*[a-zA-Z]{3,}.*[0-9]{3,}.*/,
-            userRule:/.+/,
-            formLogin: {
-              email: '',
-              password: ''
-            },
-            formSignUp:{
-              email: '',
-              password: '',
-              confirm:'',
-              uname:'',
-            }
-        }
-    },
-    computed: {
-        LoginEmailvalidation(){
-            if(this.formLogin.email.search(this.emailRule)!= -1) return true
-            else return false
-        },
-        LoginPasswordvalidation(){
-            if(this.formLogin.password.search(this.passwordRule) != -1) return true
-            else return false
-        },
-        SignUpEmailvalidation(){
-            if(this.formSignUp.email.search(this.emailRule) != -1) return true
-            else return false
-        },
-        SignUpPasswordvalidation(){
-            if(this.formSignUp.password.search(this.passwordRule) != -1) return true
-            else return false
-        },
-        Confirmvalidation(){
-            if((this.formSignUp.password || this.formSignUp.confirm) == '')return false
-            else if(this.formSignUp.password == this.formSignUp.confirm) return true
-            else return false
-        },
-        Uservalidation() {
-            if(this.formSignUp.uname.search(this.userRule) != -1) return true
-            else return false
-        }
-    },
-    methods: {
-        Login(){
-            if((this.LoginEmailvalidation && this.LoginPasswordvalidation) == true){
-                alert(JSON.stringify(this.formLogin))
-            }
-        },
-        SignUp(){
-            if((this.SignUpEmailvalidation && this.SignUpPasswordvalidation && this.Confirmvalidation && this.Uservalidation)){
-                alert(JSON.stringify(this.formSignUp))
-            }
-        }
-    }
+  data() {
+      return {
+          emailRule:/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/,
+          passwordRule:/.*[a-zA-Z]{3,}.*[0-9]{3,}.*/,
+          userRule:/.+/,
+          formLogin: {
+            email: '',
+            password: ''
+          },
+          formSignUp:{
+            email: '',
+            password: '',
+            confirm:'',
+            uname:'',
+          }
+      }
+  },
+  computed: {
+      LoginEmailvalidation(){
+          if(this.formLogin.email.search(this.emailRule)!= -1) return true
+          else return false
+      },
+      LoginPasswordvalidation(){
+          if(this.formLogin.password.search(this.passwordRule) != -1) return true
+          else return false
+      },
+      SignUpEmailvalidation(){
+          if(this.formSignUp.email.search(this.emailRule) != -1) return true
+          else return false
+      },
+      SignUpPasswordvalidation(){
+          if(this.formSignUp.password.search(this.passwordRule) != -1) return true
+          else return false
+      },
+      Confirmvalidation(){
+          if((this.formSignUp.password || this.formSignUp.confirm) == '')return false
+          else if(this.formSignUp.password == this.formSignUp.confirm) return true
+          else return false
+      },
+      Uservalidation() {
+          if(this.formSignUp.uname.search(this.userRule) != -1) return true
+          else return false
+      }
+  },
+  methods: {
+      Login(){
+          if((this.LoginEmailvalidation && this.LoginPasswordvalidation) == true){
+              alert(JSON.stringify(this.formLogin))
+          }
+      },
+      SignUp(){
+          if((this.SignUpEmailvalidation && this.SignUpPasswordvalidation && this.Confirmvalidation && this.Uservalidation)){
+              alert(JSON.stringify(this.formSignUp))
+          }
+      }
+  }
 }
 </script>
 
