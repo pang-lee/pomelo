@@ -11,10 +11,12 @@ const assets = [
     '/js/vue/component/live.vue',
     '/js/vue/component/login.vue',
     '/js/vue/component/navbar.vue',
+    '/js/vue/component/disqus.vue',
+    '/js/vue/component/profile.vue',
     '/js/vue/vuex.js',
     '/js/vue/router.js',
     '/js/vue/vue.js',
-    'css/base.css',
+    '/css/base.css',
     'https://cdn.jsdelivr.net/npm/vue/dist/vue.js',
     'https://unpkg.com/bootstrap/dist/css/bootstrap.min.css',
     'https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css',
@@ -22,6 +24,8 @@ const assets = [
     'https://unpkg.com/vue-router/dist/vue-router.js',
     'https://unpkg.com/vuex',
     'https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
+    'https://unpkg.com/vue-disqus',
     'https://unpkg.com/http-vue-loader'
 ]
 
@@ -72,5 +76,4 @@ self.addEventListener('fetch', (evt) => {
             })
         )
     }
-
 })

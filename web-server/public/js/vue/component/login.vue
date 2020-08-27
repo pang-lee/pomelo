@@ -28,13 +28,13 @@
                             </b-form-valid-feedback>
 
                             <hr/>
-                            <b-button type="submit" variant="primary">Login</b-button>
+                            <b-button type="submit" variant="primary" @click.prevent="Login()">Login</b-button>
 
                             <hr/>
                             <b-card-footer>
                                 <span>Login With:&nbsp;</span>
-                                <b-button variant="outline-primary">Facebook</b-button>&nbsp;
-                                <b-button variant="outline-danger">Google</b-button>
+                                <b-button class="fa fa-facebook" variant="outline-primary"></b-button>&nbsp;
+                                <b-button class="fa fa-google" variant="outline-danger">Google</b-button>
                             </b-card-footer>
                     </b-form>
                 </b-tab>
@@ -98,60 +98,66 @@
 <script>
 module.exports = {
   data() {
-      return {
-          emailRule:/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/,
-          passwordRule:/.*[a-zA-Z]{3,}.*[0-9]{3,}.*/,
-          userRule:/.+/,
-          formLogin: {
-            email: '',
-            password: ''
-          },
-          formSignUp:{
-            email: '',
-            password: '',
-            confirm:'',
-            uname:'',
-          }
+    return {
+      emailRule:/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/,
+      passwordRule:/.*[a-zA-Z]{3,}.*[0-9]{3,}.*/,
+      userRule:/.+/,
+      formLogin: {
+        email: '',
+        password: ''
+      },
+      formSignUp:{
+        email: '',
+        password: '',
+        confirm:'',
+        uname:'',
       }
+    }
   },
   computed: {
-      LoginEmailvalidation(){
-          if(this.formLogin.email.search(this.emailRule)!= -1) return true
-          else return false
-      },
-      LoginPasswordvalidation(){
-          if(this.formLogin.password.search(this.passwordRule) != -1) return true
-          else return false
-      },
-      SignUpEmailvalidation(){
-          if(this.formSignUp.email.search(this.emailRule) != -1) return true
-          else return false
-      },
-      SignUpPasswordvalidation(){
-          if(this.formSignUp.password.search(this.passwordRule) != -1) return true
-          else return false
-      },
-      Confirmvalidation(){
-          if((this.formSignUp.password || this.formSignUp.confirm) == '')return false
-          else if(this.formSignUp.password == this.formSignUp.confirm) return true
-          else return false
-      },
-      Uservalidation() {
-          if(this.formSignUp.uname.search(this.userRule) != -1) return true
-          else return false
-      }
+    LoginEmailvalidation(){
+      if(this.formLogin.email.search(this.emailRule)!= -1) return true
+      else return false
+    },
+    LoginPasswordvalidation(){
+      if(this.formLogin.password.search(this.passwordRule) != -1) return true
+      else return false
+    },
+    SignUpEmailvalidation(){
+      if(this.formSignUp.email.search(this.emailRule) != -1) return true
+      else return false
+    },
+    SignUpPasswordvalidation(){
+      if(this.formSignUp.password.search(this.passwordRule) != -1) return true
+      else return false
+    },
+    Confirmvalidation(){
+      if((this.formSignUp.password || this.formSignUp.confirm) == '')return false
+      else if(this.formSignUp.password == this.formSignUp.confirm) return true
+      else return false
+    },
+    Uservalidation() {
+      if(this.formSignUp.uname.search(this.userRule) != -1) return true
+      else return false
+    }
   },
   methods: {
-      Login(){
-          if((this.LoginEmailvalidation && this.LoginPasswordvalidation) == true){
-              alert(JSON.stringify(this.formLogin))
-          }
-      },
-      SignUp(){
-          if((this.SignUpEmailvalidation && this.SignUpPasswordvalidation && this.Confirmvalidation && this.Uservalidation)){
-              alert(JSON.stringify(this.formSignUp))
-          }
+    async Login(){
+      if((this.LoginEmailvalidation && this.LoginPasswordvalidation) == true){
+        const credential = firebase.auth().signInWithEmailAndPassword(this.formLogin.email, this.formLogin.password)
+        this.formLogin.email = ''
+        this.formLogin.password = ''
       }
+     },
+    async SignUp(){
+      if((this.SignUpEmailvalidation && this.SignUpPasswordvalidation && this.Confirmvalidation && this.Uservalidation)){
+        const credential = await firebase.auth().createUserWithEmailAndPassword(this.formSignUp.email, this.formSignUp.password)
+        this.formSignUp.email = ''
+        this.formSignUp.password = ''
+        this.formSignUp.confirm = ''
+        this.formSignUp.uname = ''
+      }
+    }
   }
 }
 </script>
