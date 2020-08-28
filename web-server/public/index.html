@@ -53,7 +53,9 @@
   <body>
     <div id="app">
       <navbar></navbar>
-      <router-view></router-view>
+      <transition name="fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
     </div>
     <div class="guide"></div>
     <div class="recipe"></div>
