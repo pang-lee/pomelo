@@ -8,11 +8,11 @@
 module.exports = {
   data(){
     return{
-        pageConfig: {
-          title: this.$route.params.id,
-          url: this.$route.path,
-          identifier: this.$route.params.id
-        }
+      pageConfig: {
+        title: this.$route.params.id,
+        url: this.$route.path,
+        identifier: this.$route.params.id
+      }
     }
   }
 }
