@@ -3,7 +3,7 @@
         <b-row>
             <b-col>
                 <b-card border-variant="dark" class="text-center" title="Live">
-                    <video-player class="vjs-custom-skin" :options="playerOptions">
+                    <video-player class="vjs-custom-skin" :options="playerOptions"></video-player>
                 </b-card>
             </b-col>
         </b-row>
@@ -13,17 +13,15 @@
 <script>
 module.exports ={
     data() {
-        return {
-            playerOptions: {
-                height: '360',
-                sources: [{
-                    type: "rtmp/mp4",
-                    src: "rtmp://184.72.239.149/vod/&mp4:BigBuckBunny_115k.mov"
+      return {
+        playerOptions: {
+            fluid: true,
+            techOrder: ['youtube'],
+            sources: [{
+                type: "video/youtube",
+                src: "https://youtu.be/ag96S-QvYrg"
             }],
-            techOrder: ['flash'],
-            autoplay: false,
-            controls: true,
-            poster: "https://surmon-china.github.io/vue-quill-editor/static/images/surmon-9.jpg"
+            // poster: "/static/img/backgrounds/feature-video.jpg"
         }
       }
     }
