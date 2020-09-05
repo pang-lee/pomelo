@@ -41,8 +41,8 @@ handler.entry = function(msg, session, next) {
     // self.app.rpc.chat.chatRemote.add(session, uid, self.app.get('serverId'), rid, true, function(users){
     //     next(null, { users:users })
     // })
-
-        next(null, {code: 200, msg: 'game server is ok.'})
+    
+        next(null, {code: 200, msg: 'game server fine'})
 }
 
 /**
