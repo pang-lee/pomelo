@@ -9,7 +9,7 @@
               <b-modal :id="card.id" centered title="Share To Your Friend!">
                 <p class="my-4">Vertically centered modal!</p>
               </b-modal>
-            <input id="test" type="button" value="Test Game Server" onclick="show()"/>
+            <input id="test" type="button" value="Test Game Server" onClick="show()"/>
         </b-card>
       </b-col>
     </b-row>

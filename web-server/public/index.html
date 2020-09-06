@@ -19,9 +19,6 @@
     <meta name="apple-mobile-web-app-status-bar" content="#aa7700"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="cdn/bootstrap.min.css"/>
-    <link type="text/css" rel="stylesheet" href="cdn/bootstrap-vue.min.css"/>
-    <link href="cdn/video-js.css" rel="stylesheet">
-    <link href="cdn/custom-theme.css" rel="stylesheet">
     <script type="text/javascript">
       var pomelo = window.pomelo;
       var host = "127.0.0.1";
@@ -40,23 +37,7 @@
     </script>
   </head>
   <body>
-    <div id="app">
-      <navbar></navbar>
-      <transition name="fade" mode="out-in">
-        <router-view></router-view>
-      </transition>
-    </div>
-    <div class="guide"></div>
-    <div class="recipe"></div>
-    <div>
-      <form>
-        <p>Name:</p>
-        <p><input id="title" type="text" name="name" value="你的名字"></p>
-        <p>Email:</p>
-        <p><input id="ingredient" name="species" type="text"></p>
-        <p><input type="submit" value="送出資料"></p>
-      </form>
-    </div>
+    <div id="app"></div>
 
     <footer class="site-footer">
       <div class="container">
@@ -111,117 +92,6 @@
       </div>
     </footer>
 
-    <script src="js/app.js"></script>
-    <script src="js/lib/socket.io.js"></script>
-    <script src="js/lib/pomeloclient.js"></script>
-    <script src="cdn/vue.min.js"></script>
-    <script src="cdn/bootstrap-vue.min.js"></script>
-    <script src="cdn/vue-router.min.js"></script>
-    <script src="cdn/vuex.min.js"></script>
-    <script src="cdn/es6-promise.auto.min.js"></script>
-    <script src="cdn/vue-disqus.min.js"></script>
-    <script src="cdn/video.min.js"></script>
-    <script src="cdn/youtube.min.js"></script>
-    <script src="cdn/vue-video-player.min.js"></script>
-    <script src="cdn/httpVueLoader.min.js"></script>
-    <script src="/js/vue/vuex.js"></script>
-    <script src="/js/vue/router.js"></script>
-    <script src="/js/vue/vue.js"></script>
-
+    <script src="bundle.js"></script>
   </body>
-
-  <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
-
-  <script>
-    var firebaseConfig = {
-      apiKey: "AIzaSyDjCY3KmtAfrvYzH-d6jXeBWnTFLSICIfA",
-      authDomain: "pomelo-a53a7.firebaseapp.com",
-      databaseURL: "https://pomelo-a53a7.firebaseio.com",
-      projectId: "pomelo-a53a7",
-      storageBucket: "pomelo-a53a7.appspot.com",
-      messagingSenderId: "510530322503",
-      appId: "1:510530322503:web:a1f9199b4b52b380c13162",
-      measurementId: "G-ZDNE5QY46N"
-    }
-
-    firebase.initializeApp(firebaseConfig)
-    firebase.analytics()
-    
-    const db = firebase.firestore()
-
-    const setupGuide = (data) => {
-      if(data.length){
-        let html = ''
-        data.forEach((doc) => {
-          const guide = doc.data()
-          const li = `<div>
-                        <div>${guide.title}</div>
-                        <div>${guide.content}</div>
-                      </div>`
-          html += li
-        })
-        document.querySelector('.guide').innerHTML = html
-      }else{
-        document.querySelector('.guide').innerHTML = '<h3>Please Login</h3>'
-      }
-    }
-
-    firebase.auth().onAuthStateChanged((user) => {
-      if(user){
-        db.collection('guide').get().then((snapshot) => {
-          setupGuide(snapshot.docs)
-        })
-      }else{
-        setupGuide([])
-      }
-    })
-
-    const renderRecipe = (data, id) => {
-      document.querySelector('.recipe').innerHTML += `
-      <div class="datarecipe" data-id="${id}">
-        <div>${data.title}</div>
-        <div>${data.ingredient}</div>
-        <i data-id="${id}">delete</i>
-      </div>`
-    }
-
-    const removeRecipe = (id) => {
-      const recipe = document.querySelector(`.datarecipe[data-id=${id}]`)
-      recipe.remove()
-    }
-
-    db.collection('recipe').onSnapshot((snapshot) => {
-      snapshot.docChanges().forEach((change) => {
-        if(change.type === 'added'){
-          renderRecipe(change.doc.data(), change.doc.id)
-        }else if(change.type === 'removed'){
-          removeRecipe(change.doc.id)
-        }
-      })
-    })
-
-    const form = document.querySelector('form')
-    form.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-      const insert = {
-        title: form.title.value,
-        ingredient: form.ingredient.value
-      }
-
-    db.collection('recipe').add(insert).catch((err) => console.log(err))
-      form.title.value = ''
-      form.ingredient.value = ''
-    })
-
-    const recipeContainer = document.querySelector('.recipe')
-    recipeContainer.addEventListener('click', (evt) => {
-      if(evt.target.tagName === 'I'){
-        const id = evt.target.getAttribute('data-id')
-        db.collection('recipe').doc(id).delete();
-      }
-    })
-  </script>
 </html>

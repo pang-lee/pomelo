@@ -14,7 +14,7 @@
               <b-dropdown-item href="#">ES</b-dropdown-item>
               <b-dropdown-item href="#">RU</b-dropdown-item>
               <b-dropdown-item href="#">FA</b-dropdown-item>
-              <b-dropdown-item href="#">{{test}}</b-dropdown-item>
+              <b-dropdown-item>{{test}} <b-btn>123</b-btn></b-dropdown-item>
             </b-nav-item-dropdown>
 
              <b-nav-item-dropdown right>
