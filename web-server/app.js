@@ -1,28 +1,40 @@
-var express = require('express');
-var app = express();
+const express = require('express')
+const typeDefs = require('./GraphQL/TypeDefs/schema')
+const resolvers = require('./GraphQL/Resolvers/resolver')
+const { ApolloServer } = require('apollo-server')
+const connect = require('./database/connect')
+const app = express()
 
 app.configure(function(){
-  app.use(express.methodOverride());
-  app.use(express.urlencoded());
-  app.use(express.json());
-  app.use(app.router);
-  app.set('view engine', 'jade');
-  app.set('views', __dirname + '/public');
-  app.set('view options', {layout: false});
-  app.set('basepath',__dirname + '/public');
+  app.use(express.methodOverride())
+  app.use(express.urlencoded())
+  app.use(express.json())
+  app.use(app.router)
+  app.set('view engine', 'jade')
+  app.set('views', __dirname + '/public')
+  app.set('view options', {layout: false})
+  app.set('basepath',__dirname + '/public')
 });
 
 app.configure('development', function(){
-  app.use(express.static(__dirname + '/public'));
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+  app.use(express.static(__dirname + '/public'))
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }))
 });
 
 app.configure('production', function(){
-  var oneYear = 31557600000;
-  app.use(express.static(__dirname + '/public', { maxAge: oneYear }));
-  app.use(express.errorHandler());
+  const oneYear = 31557600000
+  app.use(express.static(__dirname + '/public', { maxAge: oneYear }))
+  app.use(express.errorHandler())
 });
 
-console.log("Web server has started.\nPlease log on http://127.0.0.1:3001/index.html");
+console.log("Web server has started at http://127.0.0.1:3001/index.html")
 
-app.listen(3001);
+connect()
+
+const server = new ApolloServer({ typeDefs, resolvers })
+
+server.listen().then(({ url }) => {
+  console.log(`Apollo Server ready at ${url}`)
+})
+
+app.listen(3001)
