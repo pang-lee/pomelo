@@ -7,6 +7,7 @@
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
             <b-nav-item to='/live'>Live</b-nav-item>
+            <b-nav-item>{{test}}</b-nav-item>
           </b-navbar-nav>
           <b-navbar-nav class="ml-auto">
             <b-nav-item-dropdown text="Lang" right>
@@ -14,7 +15,6 @@
               <b-dropdown-item href="#">ES</b-dropdown-item>
               <b-dropdown-item href="#">RU</b-dropdown-item>
               <b-dropdown-item href="#">FA</b-dropdown-item>
-              <b-dropdown-item>{{test}}</b-dropdown-item>
             </b-nav-item-dropdown>
 
              <b-nav-item-dropdown right>
@@ -53,12 +53,17 @@ module.exports = {
     }
   },
   computed: {
-    ...mapState({ test:'count' })
+    ...mapState({ test: 'books' })
   },
   methods: {
     async signout(){
       await firebase.auth().signOut()
     }
+  },
+  beforeCreate() {
+    // `1` is the ID of the book we want to fetch.
+    // this.$store.dispatch('fetchBook', 1);
+    this.$store.dispatch('fetchBookList');
   },
 }
 </script>
