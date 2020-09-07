@@ -26,7 +26,6 @@ const store = new Vuex.Store({
                 }
               }`,
           })
-          console.log(response.data.books)
           context.commit('setBookList', response.data.books)
         } catch (error) {
           console.log(error)
