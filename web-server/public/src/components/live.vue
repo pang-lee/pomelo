@@ -11,7 +11,15 @@
 </template>
 
 <script>
+require('../assets/video-js.min.css')
+const { videojs, videoPlayer } = require('vue-video-player')
+require('videojs-youtube')
+
 module.exports ={
+    name: 'live',
+    components:{
+        videoPlayer
+    },
     data() {
       return {
         playerOptions: {
@@ -19,7 +27,7 @@ module.exports ={
             techOrder: ['youtube'],
             sources: [{
                 type: "video/youtube",
-                src: "https://youtu.be/ag96S-QvYrg"
+                src: "https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
             }],
             // poster: "/static/img/backgrounds/feature-video.jpg"
         }
@@ -27,5 +35,3 @@ module.exports ={
     }
 }
 </script>
-
-<style></style>

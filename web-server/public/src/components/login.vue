@@ -34,7 +34,7 @@
                             <b-card-footer>
                                 <span>Login With:&nbsp;</span>
                                 <b-button class="fa fa-facebook" variant="outline-primary"></b-button>&nbsp;
-                                <b-button class="fa fa-google" variant="outline-danger">Google</b-button>
+                                <b-button class="fa fa-google" variant="outline-danger"></b-button>
                             </b-card-footer>
                     </b-form>
                 </b-tab>

@@ -14,7 +14,7 @@
               <b-dropdown-item href="#">ES</b-dropdown-item>
               <b-dropdown-item href="#">RU</b-dropdown-item>
               <b-dropdown-item href="#">FA</b-dropdown-item>
-              <b-dropdown-item>{{test}} <b-btn>123</b-btn></b-dropdown-item>
+              <b-dropdown-item>{{test}}</b-dropdown-item>
             </b-nav-item-dropdown>
 
              <b-nav-item-dropdown right>
@@ -43,12 +43,17 @@
 </template>
 
 <script>
+const { mapState, mapGetters } = require('vuex')
+
 module.exports = {
+  name: 'navbar',
   data(){
     return{
       auth:false,
-      test:store.state.count
     }
+  },
+  computed: {
+    ...mapState({ test:'count' })
   },
   methods: {
     async signout(){
