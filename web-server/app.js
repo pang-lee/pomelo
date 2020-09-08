@@ -1,8 +1,6 @@
 require('dotenv').config()
 const express = require('express')
-const typeDefs = require('./GraphQL/TypeDefs/schema')
-const resolvers = require('./GraphQL/Resolvers/resolver')
-const { ApolloServer } = require('apollo-server')
+const apollo = require('./GraphQL/apollo')
 const connect = require('./database/connect')
 const app = express()
 
@@ -31,11 +29,6 @@ app.configure('production', function(){
 console.log("Web server has started at http://127.0.0.1:3001/index.html")
 
 connect()
-
-const server = new ApolloServer({ typeDefs, resolvers })
-
-server.listen().then(({ url }) => {
-  console.log(`Apollo Server ready at ${url}`)
-})
+apollo()
 
 app.listen(3001)
