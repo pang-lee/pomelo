@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const typeDefs = require('./GraphQL/TypeDefs/schema')
 const resolvers = require('./GraphQL/Resolvers/resolver')

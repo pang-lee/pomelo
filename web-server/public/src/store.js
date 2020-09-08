@@ -1,37 +1,17 @@
 const Vue = require('vue')
 const Vuex = require('vuex')
-const gql = require('graphql-tag')
-const graphqlClient = require('./utils/graphql')
+const moduleBook = require('./vuex/book')
+const moduleA = require('./vuex/moduleA')
+const moduleB = require('./vuex/moduleB')
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-    state: {
-      books:[]
-    },
-    mutations: {
-      setBookList(state, data) {
-        state.books = data
-      },
-    },
-    actions: {
-      async fetchBookList(context) {
-        try {
-          const response = await graphqlClient.query({
-            query: gql`
-              query {
-                books {
-                  title
-                  author
-                }
-              }`,
-          })
-          context.commit('setBookList', response.data.books)
-        } catch (error) {
-          console.log(error)
-        }
-      },
-    }
-  })
+  modules: {
+    books: moduleBook,
+    a: moduleA,
+    b: moduleB
+  }
+})
 
-  module.exports = store
+module.exports = store

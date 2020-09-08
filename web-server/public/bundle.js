@@ -90783,8 +90783,10 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
 //
 //
 //
+//
+//
 
-const { mapState, mapGetters } = require('vuex')
+const { mapState, mapGetters, mapActions } = require('vuex')
 
 module.exports = {
   name: 'navbar',
@@ -90794,7 +90796,22 @@ module.exports = {
     }
   },
   computed: {
-    ...mapState({ test: 'books' })
+    // ...mapState('a', {
+    //   c2: state => state.count,
+    // }),
+    // ...mapState('b', ['count']),
+    // ...mapGetters('a', {
+    //   c2: 'getcount'
+    // }),
+    // ...mapGetters('b', ['getcount']),
+    // ...mapGetters({
+    //   c:'books/getbook'
+    // }),
+    // ...mapGetters('books', ['getbook']),
+    // ...mapActions({
+    //   fetch:'books/fetchBookList'
+    // })
+    // ...mapActions('books', ['fetchBookList'])
   },
   methods: {
     async signout(){
@@ -90804,7 +90821,10 @@ module.exports = {
   beforeCreate() {
     // `1` is the ID of the book we want to fetch.
     // this.$store.dispatch('fetchBook', 1);
-    this.$store.dispatch('fetchBookList');
+    // this.$store.dispatch('books/fetchBookList');
+  },
+  created() {
+    // this.fetchBookList
   },
 }
 
@@ -90812,7 +90832,7 @@ module.exports = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('b-navbar',{attrs:{"toggleable":"lg","type":"dark","variant":"dark"}},[_c('b-navbar-brand',{attrs:{"to":"/"}},[_vm._v("PangTube")]),_vm._v(" "),_c('b-navbar-toggle',{attrs:{"target":"nav-collapse"}}),_vm._v(" "),_c('b-collapse',{attrs:{"id":"nav-collapse","is-nav":""}},[_c('b-navbar-nav',[_c('b-nav-item',{attrs:{"to":"/live"}},[_vm._v("Live")]),_vm._v(" "),_c('b-nav-item',[_vm._v(_vm._s(_vm.test))])],1),_vm._v(" "),_c('b-navbar-nav',{staticClass:"ml-auto"},[_c('b-nav-item-dropdown',{attrs:{"text":"Lang","right":""}},[_c('b-dropdown-item',{attrs:{"href":"#"}},[_vm._v("EN")]),_vm._v(" "),_c('b-dropdown-item',{attrs:{"href":"#"}},[_vm._v("ES")]),_vm._v(" "),_c('b-dropdown-item',{attrs:{"href":"#"}},[_vm._v("RU")]),_vm._v(" "),_c('b-dropdown-item',{attrs:{"href":"#"}},[_vm._v("FA")])],1),_vm._v(" "),_c('b-nav-item-dropdown',{attrs:{"right":""},scopedSlots:_vm._u([{key:"button-content",fn:function(){return [_c('em',[_vm._v("User")])]},proxy:true}])},[_vm._v(" "),_c('b-dropdown-item',{attrs:{"to":"/profile"}},[_vm._v("Profile")]),_vm._v(" "),_c('b-dropdown-item',{on:{"click":function($event){$event.preventDefault();return _vm.signout()}}},[_vm._v("Sign Out")]),_vm._v(" "),_c('router-link',{attrs:{"tag":"div","to":"/login"}},[_vm._v("Login")])],1)],1)],1)],1)],1)}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('b-navbar',{attrs:{"toggleable":"lg","type":"dark","variant":"dark"}},[_c('b-navbar-brand',{attrs:{"to":"/"}},[_vm._v("PangTube")]),_vm._v(" "),_c('b-navbar-toggle',{attrs:{"target":"nav-collapse"}}),_vm._v(" "),_c('b-collapse',{attrs:{"id":"nav-collapse","is-nav":""}},[_c('b-navbar-nav',[_c('b-nav-item',{attrs:{"to":"/live"}},[_vm._v("Live")])],1),_vm._v(" "),_c('b-navbar-nav',{staticClass:"ml-auto"},[_c('b-nav-item-dropdown',{attrs:{"text":"Lang","right":""}},[_c('b-dropdown-item',{attrs:{"href":"#"}},[_vm._v("EN")]),_vm._v(" "),_c('b-dropdown-item',{attrs:{"href":"#"}},[_vm._v("ES")]),_vm._v(" "),_c('b-dropdown-item',{attrs:{"href":"#"}},[_vm._v("RU")]),_vm._v(" "),_c('b-dropdown-item',{attrs:{"href":"#"}},[_vm._v("FA")])],1),_vm._v(" "),_c('b-nav-item-dropdown',{attrs:{"right":""},scopedSlots:_vm._u([{key:"button-content",fn:function(){return [_c('em',[_vm._v("User")])]},proxy:true}])},[_vm._v(" "),_c('b-dropdown-item',{attrs:{"to":"/profile"}},[_vm._v("Profile")]),_vm._v(" "),_c('b-dropdown-item',{on:{"click":function($event){$event.preventDefault();return _vm.signout()}}},[_vm._v("Sign Out")]),_vm._v(" "),_c('router-link',{attrs:{"tag":"div","to":"/login"}},[_vm._v("Login")])],1)],1)],1)],1)],1)}
 __vue__options__.staticRenderFns = []
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -90821,7 +90841,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   if (!module.hot.data) {
     hotAPI.createRecord("data-v-fff95ae8", __vue__options__)
   } else {
-    hotAPI.rerender("data-v-fff95ae8", __vue__options__)
+    hotAPI.reload("data-v-fff95ae8", __vue__options__)
   }
 })()}
 },{"vue":68,"vue-hot-reload-api":64,"vuex":70}],88:[function(require,module,exports){
@@ -90996,43 +91016,22 @@ module.exports = router
 },{"./components/disqus.vue":82,"./components/game.vue":84,"./components/live.vue":85,"./components/login.vue":86,"./components/profile.vue":88,"vue":68,"vue-router":65}],94:[function(require,module,exports){
 const Vue = require('vue')
 const Vuex = require('vuex')
-const gql = require('graphql-tag')
-const graphqlClient = require('./utils/graphql')
+const moduleBook = require('./vuex/book')
+const moduleA = require('./vuex/moduleA')
+const moduleB = require('./vuex/moduleB')
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-    state: {
-      books:[]
-    },
-    mutations: {
-      setBookList(state, data) {
-        state.books = data
-      },
-    },
-    actions: {
-      async fetchBookList(context) {
-        try {
-          const response = await graphqlClient.query({
-            query: gql`
-              query {
-                books {
-                  title
-                  author
-                }
-              }`,
-          })
-          console.log(response.data.books)
-          context.commit('setBookList', response.data.books)
-        } catch (error) {
-          console.log(error)
-        }
-      },
-    }
-  })
+  modules: {
+    books: moduleBook,
+    a: moduleA,
+    b: moduleB
+  }
+})
 
-  module.exports = store
-},{"./utils/graphql":95,"graphql-tag":21,"vue":68,"vuex":70}],95:[function(require,module,exports){
+module.exports = store
+},{"./vuex/book":96,"./vuex/moduleA":97,"./vuex/moduleB":98,"vue":68,"vuex":70}],95:[function(require,module,exports){
 const { ApolloClient } = require('apollo-client')
 const { HttpLink } = require('apollo-link-http')
 const { InMemoryCache } = require('apollo-cache-inmemory')
@@ -91041,4 +91040,72 @@ module.exports = new ApolloClient({
   link: new HttpLink({ uri: 'http://localhost:4000' }),
   cache: new InMemoryCache(),
 });
-},{"apollo-cache-inmemory":3,"apollo-client":5,"apollo-link-http":8}]},{},[89]);
+},{"apollo-cache-inmemory":3,"apollo-client":5,"apollo-link-http":8}],96:[function(require,module,exports){
+const gql = require('graphql-tag')
+const graphqlClient = require('../utils/graphql')
+
+const moduleBook = {
+    namespaced: true,
+    state: () => ({
+      books:[]
+    }),
+    getters: {
+        getbook(state){
+            return state.books
+        }
+    },
+    mutations: {
+      setBookList(state, data) {
+        state.books = data
+      },
+    },
+    actions: {
+        async fetchBookList(context) {
+            try {
+                const response = await graphqlClient.query({
+                  query: gql`
+                    query {
+                      books {
+                        title
+                        author
+                      }
+                    }`,
+                })
+                context.commit('setBookList', response.data.books)
+            } catch (error) {
+                console.log(error)
+            }    
+        }
+    }
+}
+
+module.exports = moduleBook
+},{"../utils/graphql":95,"graphql-tag":21}],97:[function(require,module,exports){
+const moduleA = {
+  namespaced: true,
+    state: () => ({
+      count:2
+    }),
+    getters: {
+      getcount(state){
+          return state.count
+      }
+    },
+}
+
+module.exports = moduleA
+},{}],98:[function(require,module,exports){
+const moduleB = {
+  namespaced: true,
+    state: () => ({
+      count:5
+    }),
+    getters: {
+      getcount(state){
+          return state.count
+      }
+    },
+}
+
+module.exports = moduleB  
+},{}]},{},[89]);

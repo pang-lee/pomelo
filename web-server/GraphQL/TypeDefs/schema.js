@@ -7,8 +7,15 @@ type Book {
 }
 
 type user{
-  name: String,
-  age: Int
+  email: String
+  password: String
+  username: String
+}
+
+type signup{
+  email: String
+  password: String
+  username: String
 }
 
 type Query {
@@ -17,7 +24,8 @@ type Query {
 }
 
 type Mutation {
-  addUser(name: String!, age: Int!): user
+  signup(email: String!, password: String!, username: String!): signup
+  login(email: String!, password: String!): String
 }
 `
 module.exports = typeDefs

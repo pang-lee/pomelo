@@ -3,3 +3,6 @@
 
 #ignore game-server node_modules
 /game-server/node_modules/
+
+#ignore .env
+/web-server/.env

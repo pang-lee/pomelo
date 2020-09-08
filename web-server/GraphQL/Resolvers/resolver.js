@@ -17,7 +17,8 @@ const resolvers = {
     getUsers: UserController.getAll
   },
   Mutation: {
-    addUser: UserController.addU
+    signup: UserController.signUp,
+    login: UserController.logIn
   }
 }
 
