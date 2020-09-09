@@ -19,18 +19,19 @@ const moduleBook = {
     actions: {
         async fetchBookList(context) {
             try {
-                const response = await graphqlClient.query({
-                  query: gql`
-                    query {
-                      books {
-                        title
-                        author
-                      }
-                    }`,
-                })
-                context.commit('setBookList', response.data.books)
+              const response = await graphqlClient.query({
+                query: gql`
+                  query {
+                    books {
+                      title
+                      author
+                    }
+                  }`,
+              })
+              console.log(response)
+              context.commit('setBookList', response.data.books)
             } catch (error) {
-                console.log(error)
+              console.log(error)
             }    
         }
     }

@@ -7,9 +7,9 @@
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
             <b-nav-item to='/live'>Live</b-nav-item>
-            <!-- <b-nav-item>{{getbook}}</b-nav-item>
-            <b-nav-item >{{count}}</b-nav-item>
-            <b-nav-item >{{getcount}}</b-nav-item> -->
+            <!-- <b-nav-item>{{getbook}}</b-nav-item> -->
+            <!-- <b-nav-item >{{count}}</b-nav-item> -->
+            <!-- <b-nav-item >{{getcount}}</b-nav-item> -->
           </b-navbar-nav>
           <b-navbar-nav class="ml-auto">
             <b-nav-item-dropdown text="Lang" right>
@@ -79,8 +79,8 @@ module.exports = {
   },
   beforeCreate() {
     // `1` is the ID of the book we want to fetch.
-    // this.$store.dispatch('fetchBook', 1);
-    // this.$store.dispatch('books/fetchBookList');
+    // this.$store.dispatch('fetchBook', 1)
+    // this.$store.dispatch('books/fetchBookList')
   },
   created() {
     // this.fetchBookList

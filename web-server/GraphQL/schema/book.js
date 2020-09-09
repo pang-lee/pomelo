@@ -18,7 +18,7 @@ type Book {
 }
 
 extend type Query {
-    books: [Book]
+  books: [Book]
 }
 `
 
