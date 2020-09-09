@@ -6,6 +6,7 @@ const apollo = () => {
     const server = new ApolloServer({
         typeDefs,
         resolvers,
+        tracing: true,
         context: async ({ req }) => {
           const token = req.headers['x-token']
           if (token) {

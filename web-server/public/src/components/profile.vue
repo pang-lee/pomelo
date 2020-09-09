@@ -61,6 +61,7 @@
 
 <script>
 module.exports = {
+    name: 'profile',
     data() {
         return {
             value:[],

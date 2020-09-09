@@ -4,12 +4,13 @@
       <b-col v-for="(card, index) in cards" :key="index">
         <b-card border-variant="dark" :title="card.title" :sub-title="card.author" :img-src="card.img" img-alt="Image" img-top tag="article" style="max-width: 20rem;" class="mb-2">
           <b-card-text>{{ card.description }}</b-card-text>
-              <b-button :to="'/comment/' + card.id" class="fa fa-comment" variant="outline-primary"></b-button>
-              <b-button v-b-modal="card.id" class="fa fa-share" variant="outline-success"></b-button>
-              <b-modal :id="card.id" centered title="Share To Your Friend!">
-                <p class="my-4">Vertically centered modal!</p>
-              </b-modal>
+            <b-button :to="'/comment/' + card.id" class="fa fa-comment" variant="outline-primary"></b-button>
+            <b-button v-b-modal="card.id" class="fa fa-share" variant="outline-success"></b-button>
+            <b-modal :id="card.id" centered title="Share To Your Friend!">
+              <p class="my-4">Vertically centered modal!</p>
+            </b-modal>
             <input id="test" type="button" value="Test Game Server" onClick="show()"/>
+            <b-button :to="'/game/' + card.id">Play</b-button>
         </b-card>
       </b-col>
     </b-row>

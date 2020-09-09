@@ -10,7 +10,8 @@ const router = new Router({
       { path: '/login', name: 'login', component: require('./components/login.vue')},
       { path: '/live', name: 'live', component: require('./components/live.vue') },
       { path: '/profile', name: 'profile', component: require('./components/profile.vue') },
-      { path: '/comment/:id', name: 'disqus', component: require('./components/disqus.vue') }
+      { path: '/comment/:id', name: 'disqus', component: require('./components/disqus.vue') },
+      { path: '/game/:id', name: 'driving', component: require('./components/game/driving.vue')}
     ]
 })
 
