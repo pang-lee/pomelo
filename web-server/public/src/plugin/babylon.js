@@ -1,2 +1,2 @@
 const Vue = require('vue')
-Vue.use(require('vue-babylonjs'))
+Vue.use(require('babylonjs'))

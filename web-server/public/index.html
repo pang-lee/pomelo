@@ -19,22 +19,6 @@
     <meta name="apple-mobile-web-app-status-bar" content="#aa7700"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="cdn/bootstrap.min.css"/>
-    <script type="text/javascript">
-      var pomelo = window.pomelo;
-      var host = "127.0.0.1";
-      var port = "3010";
-      function show() {
-        pomelo.init({
-          host: host,
-          port: port,
-          log: true
-        }, function() {
-        pomelo.request("connector.entryHandler.entry", "hello pomelo", function(data) {
-            alert(data.msg);
-          });
-        });
-      }
-    </script>
   </head>
   <body>
     <div id="app"></div>
@@ -92,6 +76,24 @@
       </div>
     </footer>
 
+    <script src="/js/lib/pomeloclient.js"></script>
+    <script src="/js/lib/socket.io.js"></script>
+    <script type="text/javascript">
+      var pomelo = window.pomelo;
+      var host = "127.0.0.1";
+      var port = "3010";
+      function show() {
+        pomelo.init({
+          host: host,
+          port: port,
+          log: true
+        }, function() {
+        pomelo.request("connector.entryHandler.entry", "hello pomelo", function(data) {
+            alert(data.msg);
+          });
+        });
+      }
+    </script>
     <script src="bundle.js"></script>
   </body>
 </html>

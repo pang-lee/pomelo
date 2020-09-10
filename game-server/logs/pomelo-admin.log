@@ -133,3 +133,21 @@
 [2020-09-06 16:05:56.299] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "chat", "127.0.0.1", 3005
 [2020-09-06 16:05:56.341] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "chat", "127.0.0.1", 3005
 [2020-09-06 16:05:56.355] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2020-09-10 21:31:35.742] [INFO] pomelo-admin - [32m[MqttServer] [39m[MqttServer] listen on 3005
+[2020-09-10 21:31:35.781] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "master", "127.0.0.1", 3005
+[2020-09-10 21:31:36.598] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "chat", "127.0.0.1", 3005
+[2020-09-10 21:31:36.592] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "chat", "127.0.0.1", 3005
+[2020-09-10 21:31:36.614] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2020-09-10 21:31:36.616] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "connector", "127.0.0.1", 3005
+[2020-09-10 21:31:36.645] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "chat", "127.0.0.1", 3005
+[2020-09-10 21:31:36.715] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "connector", "127.0.0.1", 3005
+[2020-09-10 21:31:36.739] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "connector", "127.0.0.1", 3005
+[2020-09-10 21:56:09.403] [INFO] pomelo-admin - [32m[MqttServer] [39m[MqttServer] listen on 3005
+[2020-09-10 21:56:09.448] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "master", "127.0.0.1", 3005
+[2020-09-10 21:56:10.773] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "connector", "127.0.0.1", 3005
+[2020-09-10 21:56:10.809] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "chat", "127.0.0.1", 3005
+[2020-09-10 21:56:10.816] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "chat", "127.0.0.1", 3005
+[2020-09-10 21:56:10.869] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "connector", "127.0.0.1", 3005
+[2020-09-10 21:56:10.927] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "connector", "127.0.0.1", 3005
+[2020-09-10 21:56:10.984] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2020-09-10 21:56:11.017] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "chat", "127.0.0.1", 3005

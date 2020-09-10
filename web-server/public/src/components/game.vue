@@ -9,7 +9,7 @@
             <b-modal :id="card.id" centered title="Share To Your Friend!">
               <p class="my-4">Vertically centered modal!</p>
             </b-modal>
-            <input id="test" type="button" value="Test Game Server" onClick="show()"/>
+            <input id="test" type="button" value="Test" onClick="show()"/>
             <b-button :to="'/game/' + card.id">Play</b-button>
         </b-card>
       </b-col>
@@ -19,6 +19,7 @@
 
 <script>
 module.exports = {
+  name: 'game',
   data(){
     return{
       cards:[
