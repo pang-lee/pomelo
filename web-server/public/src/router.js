@@ -11,7 +11,7 @@ const router = new Router({
       { path: '/live', name: 'live', component: require('./components/live.vue') },
       { path: '/profile', name: 'profile', component: require('./components/profile.vue') },
       { path: '/comment/:id', name: 'disqus', component: require('./components/disqus.vue') },
-      { path: '/game/:id', name: 'driving', component: require('./components/game/driving.vue')}
+      { path: '/game/:id', name: 'driving', meta: { layout: 'play' }, component: require('./components/game/driving.vue')}
     ]
 })
 

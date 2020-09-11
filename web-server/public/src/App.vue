@@ -1,23 +1,24 @@
 <template>
   <div>
-    <navbar></navbar>
-    <hr/>
     <transition name="fade" mode="out-in">
-      <router-view></router-view>
+      <component :is="layout">
+        <transition name="fade" mode="out-in">
+          <router-view></router-view>
+        </transition>
+      </component>
     </transition>
-    <hr/>
   </div>
 </template>
 
 <script>
-const navbar = require('./components/navbar.vue')
+const default_layout = 'default'
 
 module.exports = {
-  name: 'app',
-  components:{
-    navbar
-  }
-
+  computed: {
+    layout(){
+      return (this.$route.meta.layout || default_layout) + '-layout'
+    }
+  },
 }
 </script>
 

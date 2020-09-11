@@ -6,7 +6,7 @@
 
 <script>
 module.exports = {
-  name:'disqus'
+  name:'disqus',
 }
 </script>
 
