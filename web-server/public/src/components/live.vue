@@ -12,8 +12,8 @@
 
 <script>
 require('../assets/video-js.min.css')
-const { videojs, videoPlayer } = require('vue-video-player')
 require('videojs-youtube')
+const { videojs, videoPlayer } = require('vue-video-player')
 
 module.exports ={
     name: 'live',
