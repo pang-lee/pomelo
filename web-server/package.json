@@ -31,13 +31,15 @@
   "devDependencies": {
     "browserify": "^16.5.2",
     "browserify-css": "^0.15.0",
+    "imgurify": "^2.0.1",
     "nodemon": "^2.0.4",
     "vueify": "^9.4.1",
     "watchify": "^3.11.1"
   },
   "browserify": {
     "transform": [
-      "browserify-css"
+      "browserify-css",
+      "imgurify"
     ]
   }
 }
