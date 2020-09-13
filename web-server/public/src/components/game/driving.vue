@@ -56,11 +56,13 @@ module.exports = {
   beforeRouteEnter (to, from, next) {
     document.documentElement.style.overflow = 'hidden'
     document.body.style.overflow = 'hidden'
+    window.scrollTo(0,0)
     next()
   },
   beforeRouteLeave (to, from, next) {
     document.documentElement.style.overflow = 'auto'
     document.body.style.overflow = 'auto'
+    window.scrollTo(0,0)
     next()
   }
 }
