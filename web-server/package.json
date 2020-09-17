@@ -13,14 +13,21 @@
     "apollo-link-http": "^1.5.17",
     "apollo-server": "^2.17.0",
     "babylonjs": "^4.1.0",
+    "babylonjs-gui": "^4.1.0",
+    "babylonjs-loaders": "^4.1.0",
+    "babylonjs-materials": "^4.1.0",
+    "babylonjs-post-process": "^4.1.0",
+    "babylonjs-procedural-textures": "^4.1.0",
+    "babylonjs-serializers": "^4.1.0",
+    "babylonjs-viewer": "^4.1.0",
     "bcrypt": "^5.0.0",
     "bootstrap": "^4.5.2",
-    "bootstrap-vue": "^2.16.0",
+    "bootstrap-vue": "^2.17.0",
     "dotenv": "^8.2.0",
     "express": "^3.4.8",
     "graphql-tag": "^2.11.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.3",
+    "mongoose": "^5.10.5",
     "videojs-youtube": "^2.6.1",
     "vue": "^2.6.12",
     "vue-router": "^3.4.3",
@@ -32,6 +39,7 @@
     "browserify": "^16.5.2",
     "browserify-css": "^0.15.0",
     "imgurify": "^2.0.1",
+    "localenvify": "^1.0.1",
     "nodemon": "^2.0.4",
     "vueify": "^9.4.1",
     "watchify": "^3.11.1"
@@ -39,7 +47,8 @@
   "browserify": {
     "transform": [
       "browserify-css",
-      "imgurify"
+      "imgurify",
+      [ "localenvify", { "envfile": "./public/src/.env" } ]
     ]
   }
 }
