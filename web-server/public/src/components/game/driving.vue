@@ -28,9 +28,7 @@ module.exports = {
     // Default intensity is 1. Let's dim the light a small amount
     light.intensity = 0.7;
 
-  console.log(process.env.test)
-
-    BABYLON.SceneLoader.ImportMesh("", "./Dude/", "Dude.babylon", scene, function (meshes) {          
+    BABYLON.SceneLoader.ImportMesh("", `${ process.env.BASE_URL }/src/components/game/drive/Dude/`, "Dude.babylon", scene, function (meshes) {
         scene.createDefaultCameraOrLight(true, true, true);
         scene.createDefaultEnvironment();
         
